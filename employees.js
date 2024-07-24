@@ -11,7 +11,7 @@ $(function () {
       allUsers = response; // 전체 사용자 목록 저장
       let length = allUsers.length;
 
-      // 페이지 링크 설정
+      //페이지 링크 설정
       let totalPages = Math.ceil(length / usersPerPage); // 총 페이지 수
       $("#page-number").empty(); // 기존 페이지 번호 초기화
 
@@ -33,6 +33,32 @@ $(function () {
     },
   });
 
+  $("th").on("mouseover", function () {
+    $(this).addClass("hover");
+  });
+  $("th").on("mouseout", function () {
+    $(this).removeClass("hover");
+  });
+
+  // th 클릭 시 sort기능
+  $("th").click(function () {
+    const text = $(this).text();
+    console.log(text);
+    if (text.includes("사원번호")) {
+      console.log("called");
+      allUsers.sort((a, b) => a.id - b.id);
+    } else if (text.includes("이름")) {
+      allUsers.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (text.includes("부서")) {
+      allUsers.sort((a, b) => a.department.localeCompare(b.department));
+    } else if (text.includes("직급")) {
+      allUsers.sort((a, b) => a.position.localeCompare(b.position));
+    } else if (text.includes("입사일")) {
+      allUsers.sort((a, b) => new Date(a.hiredate) - new Date(b.hiredate));
+    }
+    displayUsers(allUsers, 1, usersPerPage);
+  });
+
   $(".prev").click(function (e) {
     e.preventDefault();
     if (currentPage > 1) {
@@ -50,8 +76,6 @@ $(function () {
   });
 
   function displayUsers(users, page, usersPerPage) {
-    console.log(typeof page);
-
     // 페이지에 맞는 사용자 목록 결정
     start = (page - 1) * usersPerPage;
     end = start + usersPerPage;
@@ -71,6 +95,10 @@ $(function () {
         </tr>`
       );
     });
+    $("caption").empty();
+    $("caption").append(
+      `Showing ${start} to ${end} of ${allUsers.length} results`
+    );
   }
 
   // 검색 기능

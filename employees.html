@@ -13,46 +13,72 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
     <div class="container" id="container">
       <div class="container m-4">
         <div class="row height d-flex">
-          <div class="col-md-9">
+          <div class="col-md-12">
             <div class="form">
-              <input
-                type="text"
-                class="form-control form-input"
-                placeholder="Search"
-                id="search-box"
-              />
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">
+                  <i
+                    class="fas fa-search"
+                    style="color: #c8c8c8; opacity: 0.4"
+                  ></i>
+                </span>
+                <input
+                  type="text"
+                  class="form-control form-input"
+                  placeholder="Search"
+                  id="search-box"
+                  style="background-color: #f9fafc"
+                />
+              </div>
             </div>
           </div>
         </div>
-        <table class="table table-hover">
-          <thead id="table-title">
-            <tr>
-              <th scope="col" id="emp-no">사원번호</th>
-              <th scope="col" id="emp-name">이름</th>
-              <th scope="col" id="emp-dept">부서</th>
-              <th scope="col" id="emp-positon">직급</th>
-              <th scope="col" id="emp-hiredate">입사일</th>
-            </tr>
-          </thead>
-          <tbody id="table-body"></tbody>
-        </table>
-        <div class="container" id="page">
-          <ul class="pagination">
-            <li class="page-item">
-              <a class="page-link prev" href="#">이전</a>
-            </li>
-            <li class="page-item" id="page-number">
-              <a class="page-link" href="#">1</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link next" href="#">다음</a>
-            </li>
-          </ul>
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <caption></caption>
+            <thead id="table-title">
+              <tr>
+                <th scope="col" id="emp-no">
+                  사원번호&nbsp;&nbsp;<i class="fas fa-sort"></i>
+                </th>
+                <th scope="col" id="emp-name">
+                  이름&nbsp;&nbsp;<i class="fas fa-sort"></i>
+                </th>
+                <th scope="col" id="emp-dept">
+                  부서&nbsp;&nbsp;<i class="fas fa-sort"></i>
+                </th>
+                <th scope="col" id="emp-positon">
+                  직급&nbsp;&nbsp;<i class="fas fa-sort"></i>
+                </th>
+                <th scope="col" id="emp-hiredate">
+                  입사일&nbsp;&nbsp;<i class="fas fa-sort"></i>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+          </table>
+          <div id="page">
+            <ul class="pagination">
+              <li class="page-item">
+                <a class="page-link prev" href="#">이전</a>
+              </li>
+              <li class="page-item" id="page-number">
+                <a class="page-link" href="#">1</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link next" href="#">다음</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

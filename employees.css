@@ -1,4 +1,34 @@
 #page-number{
   display: flex;
 }
+/* 400 ~ 900 */
+/* 500 ~ 700 */
+/* font: 500 16px "Noto Sans KR"; */
 
+th{
+  font: 500 16px "Noto Sans KR";
+}
+td{
+  font: 500 14px "Noto Sans KR";
+}
+#page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pagination a{
+  border: none !important;
+}
+#page a{
+  color: #3757ff !important;
+}
+caption{
+  font: 500 12px "Noto Sans KR";
+  color: darkgray !important;
+}
+input::placeholder {
+  color: darkgray !important; 
+}
+.hover{
+  background-color: darkgray !important;
+}
