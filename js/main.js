@@ -1,12 +1,19 @@
-// employees.html 삽입
-$(function () {
-  fetch("../employees.html") // 불러올 HTML 파일
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById("sub-box").innerHTML = data; // 내용을 삽입
+// $(function () {
+//   $("body").empty();
+//   // login.html 파일 불러오기
+//   $.get("../login.html", function (data) {
+//     $("body").html(data); // body 내용을 login.html로 변경
+//     $("body").css("padding", "0");
+//     $("body").css("margin", "0");
+//     // login.js 스크립트 추가
+//     $.getScript("./login.js");
+//   });
+// });
 
-      const script = document.createElement("script");
-      script.src = "./employees.js";
-      document.body.appendChild(script);
-    });
+$(function () {
+  // employees.html 파일 불러오기
+  $("#sub-box").load("../employees.html", function () {
+    // employees.js 스크립트 추가
+    $.getScript("./employees.js");
+  });
 });

@@ -216,7 +216,7 @@ $(function () {
     let usersToDisplay = users.slice(start, end);
 
     const completed =
-      '<button type="button" class="btn btn-primary complete" data-bs-toggle="modal" data-bs-target="#staticBackdrop">completed</button>';
+      '<button type="button" class="btn btn-primary completed" data-bs-toggle="modal" data-bs-target="#staticBackdrop">completed</button>';
     const inProgress =
       '<button type="button" class="btn btn-primary inprogress" data-bs-toggle="modal" data-bs-target="#staticBackdrop">In Progress</button>';
     const notStarted =

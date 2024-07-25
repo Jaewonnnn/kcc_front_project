@@ -39,7 +39,7 @@ button{
 }
 .completed{
   background-color: #6e85f8 !important;
-  color: rgb(50, 50, 225) !important;
+  color: rgb(255, 255, 255) !important;
   border: none !important;
 }
 .inprogress{
@@ -80,4 +80,10 @@ h6{
 }
 p{
   font: 700 23px "Noto Sans KR" !important;
+}
+
+ul li.active a,
+ul li a:hover {
+  border-bottom-color: #007bff !important;
+  color: #007bff !important;
 }
