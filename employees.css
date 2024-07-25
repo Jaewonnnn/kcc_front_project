@@ -7,6 +7,7 @@
 
 th{
   font: 500 16px "Noto Sans KR";
+  background-color: #F5F7FF !important;
 }
 td{
   font: 500 14px "Noto Sans KR";
@@ -20,7 +21,7 @@ td{
   border: none !important;
 }
 #page a{
-  color: #3757ff !important;
+  color: #a1a2a9 !important;
 }
 caption{
   font: 500 12px "Noto Sans KR";
@@ -30,5 +31,53 @@ input::placeholder {
   color: darkgray !important; 
 }
 .hover{
-  background-color: darkgray !important;
+  background-color: #ececec !important;
+}
+button{
+  font: 600 12px "Noto Sans KR" !important;
+  width: 100px;
+}
+.completed{
+  background-color: #6e85f8 !important;
+  color: rgb(50, 50, 225) !important;
+  border: none !important;
+}
+.inprogress{
+  background-color: #dcfce7 !important;
+  color: rgb(141, 207, 162) !important;
+  border: none !important;
+}
+.notstarted{
+  background-color: #fbe1db !important;
+  color: #f49999 !important;
+  border: none !important;
+}
+
+h6{
+  font: 700 14px "Noto Sans KR" !important;
+}
+#modal_body{
+  position:absolute;
+  top:50%; 
+  left: 31%;
+  width:50%;
+  height:41%; 
+  padding:40px;  
+  background-color: rgb(255,255,255);
+  border-radius:20px; 
+  box-shadow:0 2px 3px 0 rgba(34,36,38,0.2);  
+  transform:translateY(-50%);  
+}
+#modal{
+  position:absolute;
+  display:none;
+  justify-content: center;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+p{
+  font: 700 23px "Noto Sans KR" !important;
 }
