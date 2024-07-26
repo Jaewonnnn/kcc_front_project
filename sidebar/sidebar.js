@@ -5,6 +5,7 @@ class Sidebar extends HTMLElement {
     this.shadowRoot.innerHTML = `
       <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' integrity='sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==' crossorigin='anonymous'/>
       <link rel="stylesheet" href="/sidebar/sidebar.css">
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <header>
         <form id="header_search"><input type="text"></form>
         <button id="bell"></button>
@@ -19,7 +20,7 @@ class Sidebar extends HTMLElement {
         <div id="side_menu">
           <p class="side_menu_title">Main</p>
           <ul class="main">
-            <li class="selector"><i class="fa-solid fa-earth-americas"></i><a href="/main.html">HOME</a></li>
+            <li class="selector"><i class="fa-solid fa-earth-americas"></i><a href="home">HOME</a></li>
             <li><i class="fa-solid fa-chart-simple"></i><a href="/statistics/statistics.html">통계 관리</a></li>
             <li>
               <i class="fa-solid fa-book"></i><a href="#">교육 관리</a>
@@ -27,7 +28,7 @@ class Sidebar extends HTMLElement {
               </ul>
             </li>
             <li><i class="fa-solid fa-user"></i><a href="#">직원 관리</a></li>
-            <li><i class="fa-solid fa-clipboard"></i><a href="#">수강 관리</a></li>
+            <li><i class="fa-solid fa-clipboard"></i><a href="emp">수강 관리</a></li>
           </ul>
           <p class="side_menu_title">Short Cut</p>
           <ul class="main">
@@ -65,6 +66,19 @@ function sidemenu() {
       // 클릭된 메뉴 항목의 href 속성 값을 로컬 스토리지에 저장합니다.
       const href = item.querySelector("a").getAttribute("href");
       localStorage.setItem("selectedMenu", href);
+      // "수강 관리" 항목 클릭 시 employees.html 로드
+      if (href === "emp") {
+        $("#main p").remove();
+        $("#main").prepend(`<p class="sub-title">수강관리</p>`);
+        $("#sub-box").load("../employees.html", function () {
+          // employees.js 스크립트 추가
+          $.getScript("./employees.js");
+        });
+      } else if (href === "home") {
+        $("#main p").remove();
+        $("#main").prepend(`<p class="sub-title">Dashboard</p>`);
+        $("#sub-box").load("../dashboard.html");
+      }
     });
   });
 

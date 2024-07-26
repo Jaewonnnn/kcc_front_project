@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+:root {
+    --tr: all 0.5s ease 0s;
+    --ch1: #05478a;
+    --ch2: #0070e0;
+    --cs1: #005e38;
+    --cs2: #03a65a;
+    --cw1: #c24914;
+    --cw2: #fc8621;
+    --ce1: #851d41;
+    --ce2: #db3056;
+}
+.toast-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: var(--tr);
+    height: -1%;
+}
+.toast-item {
+    /*overflow: hidden;*/
+    max-height: 25rem;
+    transition: var(--tr);
+    position: relative;
+    animation: show-toast 4s ease 3s 1;
+}
+
+.toast {
+    background: #fff;
+    color: #f5f5f5;
+    padding: 1rem 2rem 1rem 3rem;
+    text-align: center;
+    border-radius: 1rem;
+    position: relative;
+    font-weight: 300;
+    margin: 2px 0;
+    text-align: left;
+    max-width: 16rem;
+    transition: var(--tr);
+    opacity: 1;
+    border: 0.15rem solid #eee;
+    
+}
+.toast:before {
+    content: "";
+    position: absolute;
+    width: 0.5rem;
+    height: calc(100% - 1.5rem);
+    top: 0.75rem;
+    left: 0.5rem;
+    z-index: 0;
+    border-radius: 1rem;
+    background: var(--clr);
+}
+
+.toast h3 {
+    font-size: 1.2rem;
+    margin: 0;
+    line-height: 1.35rem;
+    font-weight: 600;
+    position: relative;
+    color: var(--clr);
+}
+
+.toast p {
+    position: relative;
+    font-size: 0.95rem;
+    z-index: 1;
+    margin: 0.25rem 0 0;
+    color: #595959;
+    line-height: 1.3rem;
+}
+
+.close {
+    position: absolute;
+    width: 1.35rem;
+    height: 1.35rem;
+    text-align: center;
+    right: 1rem;
+    cursor: pointer;
+    border-radius: 100%;
+}
+.close:after {
+    position: absolute;
+    font-family: 'Varela Round', san-serif;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    font-size: 1.8rem;
+    content: "+";
+    transform: rotate(-45deg);
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #595959;
+    text-indent: 1px;
+}
+
+.close:hover:after {
+    background: var(--clr);
+    color: #fff;
+}
+.toast-item.success {
+    animation-delay: 2s;
+}
+.toast-item.warning {
+    animation-delay: 1s;
+}
+.toast-item.error {
+    animation-delay: 0s;
+}
+
+.toast.help {
+    --bg: var(--ch1);
+    --clr: var(--ch2);
+    --brd: var(--ch3);
+}
+
+
+.toast.success {
+    --bg: var(--cs1);
+    --clr: var(--cs2);
+    --brd: var(--cs3);
+}
+
+
+.toast.warning {
+    --bg: var(--cw1);
+    --clr: var(--cw2);
+    --brd: var(--cw3);
+}
+
+.toast.error {
+    --bg: var(--ce1);
+    --clr: var(--ce2);
+    --brd: var(--ce3);
+}
+
+.toast a {
+    color: var(--clr);
+}
+
+
+
+
+
+
+
+
+#container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  
+}
+#container>.row-1{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  
+}
+.row-1>.col{
+  background-color: #0070e0;
+  width: 25%;
+  height: 300px;
+  margin: 20px 15px;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+#container>.row-2{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.row-2>.chart{
+    width: 65%;
+    height: 400px;
+    margin: 20px 15px;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.row-2>.notifications{
+    width: 30%;
+    height: 400px;
+    margin: 20px 15px;
+    padding: 0 15px;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.notifications>h3{
+    margin: 15px 0 15px 15px;
+}
+#notifications-container{
+    
+    height: 300px;
+    overflow: auto;
+}
+
+
+#notifications-container::-webkit-scrollbar{
+    width: 12px;
+    margin-left: 1px;
+}
+/* 스크롤바 막대 설정*/
+#notifications-container::-webkit-scrollbar-thumb{
+    background-color: rgba(255,255,255,1);
+    border-radius: 10px; 
+
+	border: 3px solid rgba(234, 234, 234, 0.8); /* 스크롤을 적용할 영역 색깔과 border 색상을 똑같이 맞춘다 */
+}
+
+#notifications-container::-webkit-scrollbar-track{
+	background-color: rgba(0,0,0,0); /* 스크롤바 뒷 배경을 투명 처리한다 */
+}
+

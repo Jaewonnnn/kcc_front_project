@@ -23,3 +23,9 @@ section#main{
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   min-height: 100px;
 }
+.sub-title{
+  font: 800 20px 'Noto Sans KR'; 
+  color: #0f3978;
+  margin-left: 5%;
+  
+}

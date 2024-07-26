@@ -104,9 +104,9 @@ $(function () {
     }
   });
 
-  $(document).on("click", "button", function (e) {
+  $(document).on("click", ".legal-edue", function (e) {
     const empId = $(this).closest("tr").find("td:first").text();
-    $("#modal").remove();
+    $("#modal-1").remove();
     $("#container").append(
       `
       <div id="modal">
@@ -209,6 +209,31 @@ $(function () {
     $("#modal_body").fadeOut();
   });
 
+  $(document).on("click", ".nomal-edue", function (e) {
+    const empId = $(this).closest("tr").find("td:first").text();
+    $("#modal-2").remove();
+    $(".container").append(
+      `
+      <div id="modal-2">
+      <div id="modal_body-2">
+        <p id="titld">${allUsers[empId - 1].name}${
+        allUsers[empId - 1].position
+      }님의 수강 목록</p>
+        <div id="lecture-list">
+          <div>
+            <h6>zzzz</h6>
+          </div>
+        </div>
+            
+      `
+    );
+    $("#modal-2").fadeIn();
+    $("#modal_body-2").fadeIn();
+  });
+  $(document).on("click", "#modal-2", function () {
+    $("#modal-2").fadeOut();
+    $("#modal_body-2").fadeOut();
+  });
   function displayUsers(users, page, usersPerPage) {
     // 페이지에 맞는 사용자 목록 결정
     start = (page - 1) * usersPerPage;
@@ -216,11 +241,11 @@ $(function () {
     let usersToDisplay = users.slice(start, end);
 
     const completed =
-      '<button type="button" class="btn btn-primary completed" data-bs-toggle="modal" data-bs-target="#staticBackdrop">completed</button>';
+      '<button type="button" class="btn btn-primary completed legal-edue" data-bs-toggle="modal" data-bs-target="#staticBackdrop">completed</button>';
     const inProgress =
-      '<button type="button" class="btn btn-primary inprogress" data-bs-toggle="modal" data-bs-target="#staticBackdrop">In Progress</button>';
+      '<button type="button" class="btn btn-primary inprogress legal-edue" data-bs-toggle="modal" data-bs-target="#staticBackdrop">In Progress</button>';
     const notStarted =
-      '<button type="button" class="btn btn-primary notstarted" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Not Started</button>';
+      '<button type="button" class="btn btn-primary notstarted legal-edue" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Not Started</button>';
 
     // 테이블 내용 초기화
     $("tbody").empty();
@@ -242,6 +267,7 @@ $(function () {
           <td>${user.position}</td>
           <td>${user.hiredate}</td>
           <td>${icon}</td>   
+          <td><button type="button" class="btn btn-primary nomal-edue">수강목록보기</button></td>
         </tr>`
       );
     });
