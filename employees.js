@@ -106,7 +106,7 @@ $(function () {
 
   $(document).on("click", ".legal-edue", function (e) {
     const empId = $(this).closest("tr").find("td:first").text();
-    $("#modal-1").remove();
+    $("#modal").remove();
     $("#container").append(
       `
       <div id="modal">

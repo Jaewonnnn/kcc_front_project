@@ -20,7 +20,7 @@ class Sidebar extends HTMLElement {
         <div id="side_menu">
           <p class="side_menu_title">Main</p>
           <ul class="main">
-            <li class="selector"><i class="fa-solid fa-earth-americas"></i><a href="home">HOME</a></li>
+            <li class="selector"><i class="fa-solid fa-earth-americas"></i><a href="home">Dashboard</a></li>
             <li><i class="fa-solid fa-chart-simple"></i><a href="/statistics/statistics.html">통계 관리</a></li>
             <li>
               <i class="fa-solid fa-book"></i><a href="#">교육 관리</a>
@@ -44,7 +44,11 @@ class Sidebar extends HTMLElement {
     `;
   }
 }
-
+$(function () {
+  $("a").click(function (e) {
+    e.preventDefault();
+  });
+});
 customElements.define("sidebar-component", Sidebar);
 
 document.addEventListener("DOMContentLoaded", () => {
