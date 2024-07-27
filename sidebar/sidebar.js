@@ -8,9 +8,6 @@ class Sidebar extends HTMLElement {
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <header>
         <form id="header_search"><input type="text"></form>
-        <button id="bell"></button>
-        <button id="mail"></button>
-        <button id="login">Login</button>
       </header>
       <section id="sidebar">
         <div id="title"><img src="/img/title.png"></div>

@@ -111,8 +111,7 @@ $(function () {
       `
       <div id="modal">
       <div id="modal_body">
-        <p id="titld">${allUsers[empId - 1].name}${
-        allUsers[empId - 1].position
+        <p id="titld">${allUsers[empId - 1].name}${allUsers[empId - 1].position
       }님의 법정의무교육 수강률</p>
         <div id="progress-bar">
           <div>
@@ -177,7 +176,7 @@ $(function () {
                 class="progress-bar progress-bar-striped bg-warning"
                 style="width: ${allUsers[empId - 1]["4"]}%"
               >${allUsers[empId - 1]["4"]}%</div>
-            </div>
+            </div> 
           </div>
           <div class="mt-2">
             <h6>퇴직연금교육</h6>
@@ -210,30 +209,68 @@ $(function () {
   });
 
   $(document).on("click", ".nomal-edue", function (e) {
-    const empId = $(this).closest("tr").find("td:first").text();
-    $("#modal-2").remove();
-    $(".container").append(
-      `
-      <div id="modal-2">
-      <div id="modal_body-2">
-        <p id="titld">${allUsers[empId - 1].name}${
-        allUsers[empId - 1].position
-      }님의 수강 목록</p>
-        <div id="lecture-list">
-          <div>
-            <h6>zzzz</h6>
-          </div>
+    e.preventDefault(); // 기본 동작 방지
+    let empId = $(this).closest("tr").find("td:first").text(); // empId 가져오기
+    
+    // 사용자의 수강 강의를 가져옴
+    let user = allUsers[empId - 1]; // empId에 해당하는 사용자 데이터
+    let lectures = user.takingCourse; // 사용자가 수강 중인 강의 목록
+    $('#modal-2').remove();
+    // 모달 콘텐츠 생성
+    let modalContent = `
+    <div id="modal-2" style="display:none;">
+        <div id="modal_body-2">
+            <p id="titld">${user.name} ${user.position}님의 수강 목록</p>
+            <div id="lecture-list">`;
+
+    // 강의 목록 추가
+    lectures.forEach(function(lecture) {
+        modalContent += `
+                <div class="col-12 col-lg-4 col-xl-3 col-sm-6 mb-4">
+                    <div class="top_courses course_box mb-0 border-r-20">
+                        <div class="thumb position-relative mb-3">
+                            <img src="${lecture.img}" class="img-fluid w-100" alt="course_img">
+                            <p>${lecture.name}</p>
+                            <div
+                              class="progress"
+                              role="progressbar"
+                              aria-label="Default striped example"
+                              aria-valuenow="${lecture.completionRate}"
+                              aria-valuemin="0"
+                              aria-valuemax="100"
+                            >
+                            <div
+                              class="progress-bar progress-bar-striped"
+                              style="width: ${lecture.completionRate}%"
+                            >${lecture.completionRate}%</div>
+                          </div>
+                            
+                          <p class="last-take">최근 수강일: ${lecture.lastTaken}</p> <!-- 최근 수강일 추가 -->
+                        </div>
+                    </div>
+                </div>`;
+    });
+
+    modalContent += `
+            </div>
         </div>
-            
-      `
-    );
+    </div>`;
+
+    // 모달 HTML 추가
+    $(".container").append(modalContent);
+
+    // 모달 표시
     $("#modal-2").fadeIn();
     $("#modal_body-2").fadeIn();
-  });
-  $(document).on("click", "#modal-2", function () {
-    $("#modal-2").fadeOut();
-    $("#modal_body-2").fadeOut();
-  });
+});
+
+// 모달 클릭 시 닫기
+$(document).on("click", "#modal-2", function () {
+    $("#modal-2").fadeOut(function() {
+        $(this).remove(); // 모달이 사라지면 DOM에서 제거
+    });
+});
+
   function displayUsers(users, page, usersPerPage) {
     // 페이지에 맞는 사용자 목록 결정
     start = (page - 1) * usersPerPage;
@@ -274,11 +311,10 @@ $(function () {
 
     $("caption").empty();
     $("caption").append(
-      `Showing ${start + 1} to ${Math.min(end, allUsers.length)} of ${
-        allUsers.length
+      `Showing ${start + 1} to ${Math.min(end, allUsers.length)} of ${allUsers.length
       } results`
     );
-  }
+  } 
 
   // 검색 기능
   $("#search-box").keyup(function () {

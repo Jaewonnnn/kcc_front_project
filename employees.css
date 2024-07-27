@@ -77,9 +77,9 @@ h6{
 #modal_body{
   position:absolute;
   top:50%; 
-  left: 31%;
-  width:50%;
-  height:41%; 
+  left: 35%;
+  width:40%;
+  height:41%;
   padding:40px;  
   background-color: rgb(255,255,255);
   border-radius:20px; 
@@ -99,9 +99,8 @@ h6{
 #modal_body-2{
   position:absolute;
   top:50%; 
-  left: 31%;
-  width:50%;
-  height:41%; 
+  left: 28%;
+  width:60%;
   padding:40px;  
   background-color: rgb(255,255,255);
   border-radius:20px; 
@@ -126,4 +125,14 @@ h6{
 p{
   font: 700 23px "Noto Sans KR" !important;
 }
-
+#lecture-list {
+  display: flex; /* Flexbox 사용 */
+  flex-wrap: wrap; /* 항목들이 여러 줄로 나누어질 수 있도록 설정 */
+  gap: 20px; /* 항목 간 간격 */
+}
+.top_courses {
+  flex: 1 1 30%; /* 각 항목의 기본 너비를 30%로 설정 */
+}
+.last-take{
+  font: 600 13px "Noto Sans KR" !important;
+}

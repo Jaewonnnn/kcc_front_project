@@ -1,168 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>dashboard</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="dashboard.css" />
-    <script type="text/javascript" src="dashboard.js"></script>
-  </head>
-  <body>
-    <div id="container">
-      <div class="row-1">
-        <div class="col col-1"></div>
-        <div class="col col-2"></div>
-        <div class="col col-3"></div>
-        <div class="col col-4">
-          <h4>법정의무교육</h4>
-          <div class="chart-container">
-            <canvas id="doughnut-chart"></canvas>
-          </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>dashboard</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="dashboard.css" />
+  <script type="text/javascript" src="dashboard.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="row-1">
+      <div class="col col-1">
+        <h4>전체 직원</h4>
+      </div>
+      <div class="col col-2">
+        <h4>전체 교육</h4>
+      </div>
+      <div class="col col-3">
+        <h4>교육 평점</h4>
+      </div>
+      <div class="col col-4">
+        <h4>법정의무교육현황</h4>
+        <div class="chart-container">
+          <canvas id="legal-chart"></canvas>
         </div>
       </div>
-      <div class="row-2">
-        <div class="col chart">
-          <canvas id="myChart"></canvas>
-        </div>
-        <div class="col notifications">
-          <h3>Notifications</h3>
-          <div id="notifications-container">
-            <div class="toast-panel">
-              <div class="toast-item help">
-                <div class="toast help">
-                  <label for="t-help" class="close"></label>
-                  <h3>Help!</h3>
-                  <p>Do you have a problem? Just use this.</p>
-                </div>
-              </div>
-              <div class="toast-item success">
-                <div class="toast success">
-                  <label for="t-success" class="close"></label>
-                  <h3>Success!</h3>
-                  <p>Your message has been sent successfully.</p>
-                </div>
-              </div>
-              <div class="toast-item warning">
-                <div class="toast warning">
-                  <label for="t-warning" class="close"></label>
-                  <h3>Warning!</h3>
-                  <p>Sorry, there was a problem with your request.</p>
-                </div>
-              </div>
-              <div class="toast-item error">
-                <div class="toast error">
-                  <label for="t-error" class="close"></label>
-                  <h3>Error!</h3>
-                  <p>Change a few thing up and try submitting again.</p>
-                </div>
-              </div>
+    </div>
+    <div class="row-2">
+      <div class="col chart">
+        <canvas id="sales-chart"></canvas>
+      </div>
+      <div class="col notifications">
+        <h3>Notifications</h3>
+        <div id="notifications-container">
+          <div class="toast-panel">
+            <div class="toast-item success">
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!DOCTYPE html>
-    <html lang="ko">
-      <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-          crossorigin="anonymous"
-        />
-        <link rel="stylesheet" href="/css/main.css" />
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
-        <title>Document</title>
-      </head>
-      <body>
-        <sidebar-component></sidebar-component>
-        <section id="main">
-          <div class="container">
-            <div id="sub-box"></div>
-          </div>
-        </section>
+</body>
 
-        <script src="./js/main.js"></script>
-        <script src="./sidebar/sidebar.js"></script>
-        <script>
-          const ctx = document.querySelector("#myChart");
-          const doughnut = document.querySelector("#doughnut-chart");
-          new Chart(doughnut, {
-            type: "doughnut",
-            data: {
-              labels: ["Completed", "In Progress", "Not Started"],
-            },
-            datasets: [
-              {
-                data: [10, 20, 30],
-                backgroundColor: ["#4e73df", "#1cc88a", "#36b9cc"],
-                hoverBackgroundColor: ["#2e59d9", "#17a673", "#2c9faf"],
-                hoverBorderColor: "rgba(234, 236, 244, 1)",
-              },
-            ],
-            options: {
-              maintainAspectRatio: false,
-              tooltips: {
-                backgroundColor: "rgb(255,255,255)",
-                bodyFontColor: "#858796",
-                borderColor: "#dddfeb",
-                borderWidth: 1,
-                xPadding: 15,
-                yPadding: 15,
-                displayColors: false,
-                caretPadding: 10,
-              },
-              legend: {
-                display: false,
-              },
-              cutoutPercentage: 0,
-            },
-          });
-          new Chart(ctx, {
-            type: "bar", // bar, line, pie, doughnut, radar 등등...
-            data: {
-              labels: [
-                "구두",
-                "스니커즈",
-                "캔버스화",
-                "워커",
-                "운동화",
-                "크록스",
-                "샌들",
-              ],
-              datasets: [
-                {
-                  label: "작년 매출",
-                  data: [10, 19, 13, 15, 12, 13, 9],
-                  borderWidth: 1,
-                },
-                {
-                  label: "올해 매출",
-                  data: [9, 14, 10, 19, 22, 11, 16],
-                  borderWidth: 1,
-                },
-              ],
-            },
-            options: {
-              scales: {
-                y: {
-                  beginAtZero: true,
-                },
-              },
-            },
-          });
-        </script>
-      </body>
-    </html>
-  </body>
 </html>

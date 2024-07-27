@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
 :root {
     --tr: all 0.5s ease 0s;
     --ch1: #05478a;
@@ -10,6 +11,7 @@
     --ce1: #851d41;
     --ce2: #db3056;
 }
+
 .toast-panel {
     display: flex;
     flex-direction: column;
@@ -18,6 +20,7 @@
     transition: var(--tr);
     height: -1%;
 }
+
 .toast-item {
     /*overflow: hidden;*/
     max-height: 25rem;
@@ -40,8 +43,9 @@
     transition: var(--tr);
     opacity: 1;
     border: 0.15rem solid #eee;
-    
+
 }
+
 .toast:before {
     content: "";
     position: absolute;
@@ -81,6 +85,7 @@
     cursor: pointer;
     border-radius: 100%;
 }
+
 .close:after {
     position: absolute;
     font-family: 'Varela Round', san-serif;
@@ -102,20 +107,17 @@
     background: var(--clr);
     color: #fff;
 }
+
 .toast-item.success {
     animation-delay: 2s;
 }
+
 .toast-item.warning {
     animation-delay: 1s;
 }
+
 .toast-item.error {
     animation-delay: 0s;
-}
-
-.toast.help {
-    --bg: var(--ch1);
-    --clr: var(--ch2);
-    --brd: var(--ch3);
 }
 
 
@@ -132,10 +134,10 @@
     --brd: var(--cw3);
 }
 
-.toast.error {
-    --bg: var(--ce1);
-    --clr: var(--ce2);
-    --brd: var(--ce3);
+.toast.help {
+    --bg: var(--ch1);
+    --clr: var(--ch2);
+    --brd: var(--ch3);
 }
 
 .toast a {
@@ -149,33 +151,37 @@
 
 
 
-#container{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100vh;
-  
+#container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+
 }
-#container>.row-1{
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  
+
+#container>.row-1 {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
 }
-.row-1>.col{
-  
-  width: 25%;
-  height: 250px;
-  margin: 20px 15px;
-  border-radius: 10px;
-  box-shadow: 2px 0 14px 28px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0,0,0,0.22);
+
+.row-1>.col {
+
+    width: 25%;
+    height: 300px;
+    margin: 20px 15px;
+    border-radius: 10px;
+    box-shadow: 2px 0 14px 28px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
-#container>.row-2{
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+
+#container>.row-2 {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
-.row-2>.chart{
+
+.row-2>.chart {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -184,39 +190,55 @@
     height: 400px;
     margin: 20px 15px;
     border-radius: 10px;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
-.row-2>.notifications{
+
+.row-2>.notifications {
     width: 30%;
     height: 400px;
     margin: 20px 15px;
     padding: 20px 15px;
     border-radius: 10px;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
-.notifications>h3{
+
+.notifications>h3 {
     margin: 15px 0 15px 15px;
 }
-#notifications-container{
-    
+
+#notifications-container {
+
     height: 300px;
     overflow: auto;
 }
 
 
-#notifications-container::-webkit-scrollbar{
+#notifications-container::-webkit-scrollbar {
     width: 12px;
     margin-left: 1px;
 }
+
 /* 스크롤바 막대 설정*/
-#notifications-container::-webkit-scrollbar-thumb{
-    background-color: rgba(255,255,255,1);
-    border-radius: 10px; 
+#notifications-container::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 10px;
 
-	border: 3px solid rgba(234, 234, 234, 0.8); /* 스크롤을 적용할 영역 색깔과 border 색상을 똑같이 맞춘다 */
+    border: 3px solid rgba(234, 234, 234, 0.8);
+    /* 스크롤을 적용할 영역 색깔과 border 색상을 똑같이 맞춘다 */
 }
 
-#notifications-container::-webkit-scrollbar-track{
-	background-color: rgba(0,0,0,0); /* 스크롤바 뒷 배경을 투명 처리한다 */
+#notifications-container::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0);
+    /* 스크롤바 뒷 배경을 투명 처리한다 */
 }
 
+.row-1>.col h4 {
+    margin-left: 1.5rem;
+}
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
