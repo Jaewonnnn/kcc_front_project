@@ -10,7 +10,7 @@
 //   });
 // });
 
-$(document).on("click", ".main>li", function () {
+$(document).on("click", ".main>fa-clipboard", function () {
   // employees.html 파일 불러오기
   $("#sub-box").load("../employees.html", function () {
     // employees.js 스크립트 추가

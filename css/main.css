@@ -1,16 +1,15 @@
-li{
+li {
   list-style: none;
 }
 
-body{
+body {
   padding-top: 80px;
   padding-left: 270px;
-  background-color: #F5F7FF !important;
+  background-color: #f5f7ff !important;
   position: relative;
 }
 
-
-section#main{
+section#main {
   width: 100%;
   min-height: 1000px;
 }
@@ -23,9 +22,8 @@ section#main{
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   min-height: 100px;
 }
-.sub-title{
-  font: 800 20px 'Noto Sans KR'; 
+.sub-title {
+  margin-left: 3rem !important;
+  font: 800 20px "Noto Sans KR" !important;
   color: #0f3978;
-  margin-left: 5%;
-  
 }

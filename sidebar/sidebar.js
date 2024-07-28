@@ -18,13 +18,12 @@ class Sidebar extends HTMLElement {
           <p class="side_menu_title">Main</p>
           <ul class="main">
             <li class="selector"><i class="fa-solid fa-earth-americas"></i><a href="home">Dashboard</a></li>
-            <li><i class="fa-solid fa-chart-simple"></i><a href="/statistics/statistics.html">통계 관리</a></li>
+            
             <li>
-              <i class="fa-solid fa-book"></i><a href="#">교육 관리</a>
+              <i class="fa-solid fa-book"></i><a href="edue">교육 관리</a>
               <ul class="side_menu_detail">
               </ul>
             </li>
-            <li><i class="fa-solid fa-user"></i><a href="#">직원 관리</a></li>
             <li><i class="fa-solid fa-clipboard"></i><a href="emp">수강 관리</a></li>
           </ul>
           <p class="side_menu_title">Short Cut</p>
@@ -79,6 +78,12 @@ function sidemenu() {
         $("#main p").remove();
         $("#main").prepend(`<p class="sub-title">Dashboard</p>`);
         $("#sub-box").load("../dashboard.html");
+      } else if (href === "edue") {
+        $("#main p").remove();
+        $("#main").prepend(`<p class="sub-title">교육 관리</p>`);
+        $("#sub-box").load("../course.html", function () {
+          $.getScript("../course.js");
+        });
       }
     });
   });

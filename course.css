@@ -1,0 +1,60 @@
+.sub-title {
+}
+#container {
+  display: flex;
+
+  flex-wrap: wrap; /* 추가: 아이템이 컨테이너를 넘어가면 아래로 내려가도록 설정 */
+  margin: 20px 10px 0px 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.course-title {
+  margin: 10px 0px;
+  font: 600 20px "Noto Sans KR" !important;
+  border-bottom: 1px solid rgba(167, 164, 164, 0.5);
+  padding: 2px;
+}
+.class {
+  font: 600 16px "Noto Sans KR" !important;
+  border: 1px solid black;
+  padding: 2px;
+}
+.thumb {
+  border-radius: 1rem;
+  border: 0.3px solid rgb(238, 235, 235);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  margin: 1rem;
+  height: 350px;
+  padding: 20px;
+}
+.thumb:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+.due-date {
+  position: relative;
+  top: 10px;
+  font: 500 13px "Noto Sans KR" !important;
+  margin-bottom: 0px;
+}
+.row > .col-6 {
+  display: flex;
+  justify-content: center;
+}
+button {
+  width: 200px;
+  height: 40px;
+  font: 600 13px "Noto Sans KR" !important;
+  margin: 2px !important;
+}
+.update {
+  background-color: #dcfce6 !important;
+  border: none !important;
+  color: rgb(98, 164, 110) !important;
+}
+.delete {
+  background-color: #fbe1db !important;
+  border: none !important;
+  color: rgb(222, 84, 84) !important;
+}

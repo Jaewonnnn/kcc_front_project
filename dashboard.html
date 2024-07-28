@@ -1,47 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>dashboard</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="dashboard.css" />
+    <script type="text/javascript" src="dashboard.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <title>dashboard</title>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <link rel="stylesheet" href="dashboard.css" />
-  <script type="text/javascript" src="dashboard.js"></script>
-</head>
-
-<body>
-  <div id="container">
-    <div class="row-1">
-      <div class="col col-1">
-        <h4>전체 직원</h4>
-      </div>
-      <div class="col col-2">
-        <h4>전체 교육</h4>
-      </div>
-      <div class="col col-3">
-        <h4>교육 평점</h4>
-      </div>
-      <div class="col col-4">
-        <h4>법정의무교육현황</h4>
-        <div class="chart-container">
-          <canvas id="legal-chart"></canvas>
+  <body>
+    <div id="container">
+      <div class="row-1">
+        <div class="col col-1">
+          <h4>전체 직원</h4>
+        </div>
+        <div class="col col-2">
+          <h4>전체 교육</h4>
+        </div>
+        <div class="col col-3">
+          <h4>교육 평점</h4>
+        </div>
+        <div class="col col-4">
+          <h4>법정의무교육현황</h4>
+          <div class="chart-container">
+            <canvas id="legal-chart"></canvas>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row-2">
-      <div class="col chart">
-        <canvas id="sales-chart"></canvas>
-      </div>
-      <div class="col notifications">
-        <h3>Notifications</h3>
-        <div id="notifications-container">
-          <div class="toast-panel">
-            <div class="toast-item success">
+      <div class="row-2">
+        <div class="col chart">
+          <canvas id="sales-chart"></canvas>
+        </div>
+        <div class="col notifications">
+          <h3>Notifications</h3>
+          <div id="notifications-container">
+            <div class="toast-panel">
+              <div class="toast-item success"></div>
             </div>
           </div>
         </div>
       </div>
     </div>
-</body>
-
+  </body>
 </html>
