@@ -81,11 +81,11 @@ $(document).on("click", "#modal", function (e) {
 $(document).on("click", "#modal_body", function (e) {
   e.stopPropagation(); // 클릭 이벤트가 모달 외부로 전파되지 않도록 함
 });
-// 강의 등록 버튼 클릭 이벤트 핸들러
+
 $(document).on("submit", "#addCourseForm", function (e) {
   e.preventDefault();
   const newCourse = {
-    id: String(Date.now()), // 임시 ID 생성
+    id: lectures.length + 1,
     name: $("#courseName").val(),
     content: $("#courseContent").val(),
     detail: $("#courseDetail").val(),
@@ -108,10 +108,6 @@ function addCourse(course) {
       alert("강의가 성공적으로 등록되었습니다.");
       $("#modal").fadeOut();
       $("#modal_body").fadeOut();
-      // 강의 목록 갱신 또는 다른 필요한 작업 수행
-    },
-    error: function () {
-      alert("강의 등록에 실패했습니다. 다시 시도해주세요.");
     },
   });
 }

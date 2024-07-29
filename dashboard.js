@@ -26,26 +26,20 @@ function loadRating() {
 function salesChart() {
   const ctx = document.getElementById("sales-chart").getContext("2d");
   let lectures = [];
-  let enrollment = [];
 
   $.ajax({
     url: "http://localhost:3009/lectures",
     type: "GET",
     dataType: "json",
     success: function (data) {
-      // 데이터 구조 확인
-      console.log(data); // 응답 데이터 확인
-
-      // 강의 데이터를 가져와서 월별 데이터 생성
-      lectures = data; // lectures에 데이터 할당
+      lectures = data;
       const salesData = generateMonthlyData(lectures);
 
-      // 차트 데이터 설정
       const labels = ["1월", "2월", "3월", "4월", "5월", "6월", "7월"];
       const datasets = salesData.map((lecture) => ({
         label: lecture.name,
         data: lecture.monthlyEnrollments,
-        borderColor: `rgba(${randomColor()}, ${Math.random()})`, // 랜덤 색상
+        borderColor: `rgba(${randomColor()}, ${Math.random()})`,
         borderWidth: 2,
         fill: false,
         pointRadius: 5,
@@ -56,12 +50,11 @@ function salesChart() {
         datasets: datasets,
       };
 
-      // 차트 옵션 설정
       const options = {
         responsive: true,
         scales: {
           y: {
-            beginAtZero: true, // y축이 0부터 시작하도록 설정
+            beginAtZero: true,
           },
         },
         plugins: {
@@ -73,7 +66,7 @@ function salesChart() {
               label: function (context) {
                 let label = context.dataset.label || "";
                 if (label) {
-                  label += ": " + context.raw; // 수치 표시
+                  label += ": " + context.raw; 
                 }
                 return label;
               },
@@ -82,9 +75,8 @@ function salesChart() {
         },
       };
 
-      // 라인 차트 생성
       new Chart(ctx, {
-        type: "line", // 선 차트
+        type: "line", 
         data: chartData,
         options: options,
       });

@@ -13,6 +13,7 @@ $(function () {
   });
 
   // 강의 삭제 이벤트 핸들러
+  
   $(document)
     .off("click", ".delete")
     .on("click", ".delete", function (e) {
@@ -26,6 +27,17 @@ $(function () {
         deleteCourse(lectureId);
       }
     });
+
+    function deleteCourse(id) {
+      $.ajax({
+        url: `http://localhost:3009/lectures/${id}`,
+        type: "DELETE",
+        success: function () {
+          courseList = courseList.filter((course) => course.id !== id);
+          displayCourses(courseList);
+        },
+      });
+    }
 
   // 강의 수정 이벤트 핸들러
   $(document)
