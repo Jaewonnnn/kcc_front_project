@@ -56,7 +56,7 @@ $(function () {
 
   // th 클릭 시 sort 기능
   $("th").click(function () {
-    let newUsers = [...allUsers]; // 전체 사용자 목록을 복사
+    let newUsers = [...allUsers];
     const text = $(this).text();
     let key;
 
@@ -111,7 +111,8 @@ $(function () {
       `
       <div id="modal">
       <div id="modal_body">
-        <p id="titld">${allUsers[empId - 1].name}${allUsers[empId - 1].position
+        <p id="titld">${allUsers[empId - 1].name}${
+        allUsers[empId - 1].position
       }님의 법정의무교육 수강률</p>
         <div id="progress-bar">
           <div>
@@ -209,67 +210,49 @@ $(function () {
   });
 
   $(document).on("click", ".nomal-edue", function (e) {
-    e.preventDefault(); // 기본 동작 방지
-    let empId = $(this).closest("tr").find("td:first").text(); // empId 가져오기
-    
-    // 사용자의 수강 강의를 가져옴
-    let user = allUsers[empId - 1]; // empId에 해당하는 사용자 데이터
-    let lectures = user.takingCourse; // 사용자가 수강 중인 강의 목록
-    $('#modal-2').remove();
-    // 모달 콘텐츠 생성
+    e.preventDefault();
+    let empId = $(this).closest("tr").find("td:first").text();
+
+    let user = allUsers[empId - 1];
+    let lectures = user.takingCourse; // 수강 중인 강의 목록
+    $("#modal-2").remove();
+
     let modalContent = `
-    <div id="modal-2" style="display:none;">
+      <div id="modal-2" style="display:none;">
         <div id="modal_body-2">
-            <p id="titld">${user.name} ${user.position}님의 수강 목록</p>
+          <p id="titld">${user.name} ${user.position}님의 수강 목록</p>
             <div id="lecture-list">`;
-
-    // 강의 목록 추가
-    lectures.forEach(function(lecture) {
-        modalContent += `
-                <div class="col-12 col-lg-4 col-xl-3 col-sm-6 mb-4">
-                    <div class="top_courses course_box mb-0 border-r-20">
-                        <div class="thumb position-relative mb-3">
-                            <img src="${lecture.img}" class="img-fluid w-100" alt="course_img">
-                            <p>${lecture.name}</p>
-                            <div
-                              class="progress"
-                              role="progressbar"
-                              aria-label="Default striped example"
-                              aria-valuenow="${lecture.completionRate}"
-                              aria-valuemin="0"
-                              aria-valuemax="100"
-                            >
-                            <div
-                              class="progress-bar progress-bar-striped"
-                              style="width: ${lecture.completionRate}%"
-                            >${lecture.completionRate}%</div>
-                          </div>
-                            
-                          <p class="last-take">최근 수강일: ${lecture.lastTaken}</p> <!-- 최근 수강일 추가 -->
-                        </div>
-                    </div>
-                </div>`;
+    lectures.forEach(function (lecture) {
+      modalContent += `
+        <div class="col-12 col-lg-4 col-xl-3 col-sm-6 mb-4">
+          <div class="top_courses course_box mb-0 border-r-20">
+            <div class="thumb position-relative mb-3">
+              <img src="${lecture.img}" class="img-fluid w-100" alt="course_img">
+              <p>${lecture.name}</p>
+              <div class="progress" role="progressbar" aria-label="Default striped example" aria-valuenow="${lecture.completionRate}" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-bar progress-bar-striped" style="width: ${lecture.completionRate}%">${lecture.completionRate}%</div>
+              </div>
+              <p class="last-take">최근 수강일: ${lecture.lastTaken}</p> <!-- 최근 수강일 추가 -->
+          </div>
+        </div>
+      </div>`;
     });
-
     modalContent += `
             </div>
         </div>
     </div>`;
 
-    // 모달 HTML 추가
     $(".container").append(modalContent);
-
-    // 모달 표시
     $("#modal-2").fadeIn();
     $("#modal_body-2").fadeIn();
-});
+  });
 
-// 모달 클릭 시 닫기
-$(document).on("click", "#modal-2", function () {
-    $("#modal-2").fadeOut(function() {
-        $(this).remove(); // 모달이 사라지면 DOM에서 제거
+  // 모달 클릭 시 닫기
+  $(document).on("click", "#modal-2", function () {
+    $("#modal-2").fadeOut(function () {
+      $(this).remove(); // 모달이 사라지면 DOM에서 제거
     });
-});
+  });
 
   function displayUsers(users, page, usersPerPage) {
     // 페이지에 맞는 사용자 목록 결정
@@ -311,14 +294,15 @@ $(document).on("click", "#modal-2", function () {
 
     $("caption").empty();
     $("caption").append(
-      `Showing ${start + 1} to ${Math.min(end, allUsers.length)} of ${allUsers.length
+      `Showing ${start + 1} to ${Math.min(end, allUsers.length)} of ${
+        allUsers.length
       } results`
     );
-  } 
+  }
 
   // 검색 기능
   $("#search-box").keyup(function () {
-    let word = $(this).val().toLowerCase(); // 입력된 검색어를 소문자로 변환
+    let word = $(this).val().toLowerCase();
     let filteredUsers = allUsers.filter(
       (user) =>
         user.name.toLowerCase().includes(word) || // 이름에 검색어 포함

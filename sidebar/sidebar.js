@@ -80,7 +80,12 @@ function sidemenu() {
         $("#sub-box").load("../dashboard.html");
       } else if (href === "edue") {
         $("#main p").remove();
-        $("#main").prepend(`<p class="sub-title">교육 관리</p>`);
+        $("#main").prepend(`
+          <div class="head">
+          <p class="sub-title">교육 관리</p>
+          <button type="button" class="btn btn-light">강의 등록</button>
+          </div>
+          `);
         $("#sub-box").load("../course.html", function () {
           $.getScript("../course.js");
         });

@@ -227,3 +227,39 @@
   align-items: center;
   height: 200px;
 }
+.edue-container img {
+  width: 5rem;
+}
+.star-container,
+.edue-container {
+  font-size: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.star-container img {
+  width: 5rem;
+}
+.all-emp {
+  margin-top: 48px;
+  font-size: 36px;
+}
+
+.star {
+  background: linear-gradient(to right, #eab838, #eab838 50%, #e0e2e7 50%);
+  color: transparent;
+  -webkit-background-clip: text;
+}
+
+.star-container > p {
+  margin: 0px;
+}
+.emp-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.emp-container img {
+  width: 5rem;
+}

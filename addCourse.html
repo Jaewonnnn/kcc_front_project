@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Add Course</title>
     <link rel="stylesheet" href="course.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link
@@ -12,7 +12,77 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <script type="text/javascript" src="course.js"></script>
+    <script type="text/javascript" src="addCourse.js"></script>
   </head>
-  <body></body>
+  <body>
+    <div class="container mt-5">
+      <h2 class="mb-4">강의 등록</h2>
+      <form id="addCourseForm">
+        <div class="mb-3">
+          <label for="courseName" class="form-label">강의명</label>
+          <input type="text" class="form-control" id="courseName" required />
+        </div>
+        <div class="mb-3">
+          <label for="courseContent" class="form-label">강의 내용</label>
+          <textarea
+            class="form-control"
+            id="courseContent"
+            rows="3"
+            required
+          ></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="courseDetail" class="form-label">강의 상세 설명</label>
+          <textarea
+            class="form-control"
+            id="courseDetail"
+            rows="3"
+            required
+          ></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="courseRequirements" class="form-label">필요 조건</label>
+          <input
+            type="text"
+            class="form-control"
+            id="courseRequirements"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="totalEnrollment" class="form-label">총 수강 인원</label>
+          <input
+            type="number"
+            class="form-control"
+            id="totalEnrollment"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="courseImage" class="form-label">이미지 URL</label>
+          <input type="text" class="form-control" id="courseImage" required />
+        </div>
+        <div class="mb-3">
+          <label class="input-group-text" for="inputGroupFile02"
+            >첨부파일</label
+          >
+          <input type="file" class="form-control" id="inputGroupFile02" />
+        </div>
+        <div class="mb-3">
+          <label for="courseRating" class="form-label">평점</label>
+          <input
+            type="number"
+            class="form-control"
+            id="courseRating"
+            step="0.1"
+            min="0"
+            max="5"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">강의 등록</button>
+      </form>
+    </div>
+    <script src="course.js"></script>
+  </body>
 </html>

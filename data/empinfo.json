@@ -42,11 +42,11 @@
       ]
     },
     {
-      "1": 0,
-      "2": 50,
-      "3": 0,
-      "4": 0,
-      "5": 0,
+      "1": 100,
+      "2": 90,
+      "3": 50,
+      "4": 10,
+      "5": 10,
       "id": "2",
       "name": "김영희",
       "department": "Backend",
@@ -675,18 +675,24 @@
   ],
   "lectures": [
     {
-      "id": "1",
       "name": "JAVA",
+      "content": "<b>초급자</b>를 위해 준비한 <b>[프로그래밍 언어, 웹 개발]</b>강의입니다.",
+      "detail": "실무에 필요한 자바 객체 지향의 핵심 개념을 예제 코드를 통해 쉽게 학습합니다.",
+      "requirements": "undefined",
       "totalEnrollment": 78,
       "img": "../img/JAVA.png",
-      "rating": 4.5
+      "rating": 4.5,
+      "id": "1"
     },
     {
-      "id": "2",
       "name": "Python",
+      "content": "<b>d입문자</b>를 위해 준비한 <b>[프로그래밍 언어, 웹 개발]</b>강의입니다.",
+      "detail": "이미 2만명 이상이 학습하고 만족한 최고의 프로그래밍 입문 강의. 인프런이 비전공자 위치에서 직접 기획하고 준비한 프로그래밍 입문 강의로, 프로그래밍을 전혀 접해보지 못한 사람부터 실제 활용 가능한 프로그래밍 능력까지 갈 수 있도록 도와주는 강의입니다.",
+      "requirements": "undefined",
       "totalEnrollment": 65,
       "img": "../img/Python.png",
-      "rating": 4
+      "rating": 4.1,
+      "id": "2"
     },
     {
       "id": "3",
@@ -743,13 +749,6 @@
       "totalEnrollment": 71,
       "img": "../img/Network.png",
       "rating": 4.4
-    },
-    {
-      "id": "11",
-      "name": "UX/UI 디자인",
-      "totalEnrollment": 68,
-      "img": "../img/uiux.png",
-      "rating": 4.1
     }
   ]
 }
